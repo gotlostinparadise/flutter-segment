@@ -5,6 +5,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
 
     dependencies {
@@ -16,6 +17,7 @@ rootProject.allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
 }
 
@@ -35,6 +37,12 @@ android {
     dependencies {
         implementation 'com.segment.analytics.android:analytics:4.7.0'
         implementation 'com.segment.analytics.android.integrations:amplitude:+'
+        implementation("com.moengage:moengage-segment-integration:5.4.01") {
+          transitive = true
+        }
+        implementation("androidx.core:core:1.3.1")
+        implementation("androidx.appcompat:appcompat:1.2.0")
+        implementation("androidx.lifecycle:lifecycle-process:2.2.0")
     }
 }
 

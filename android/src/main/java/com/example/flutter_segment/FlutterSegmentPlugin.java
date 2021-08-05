@@ -18,6 +18,8 @@ import com.segment.analytics.Options;
 import com.segment.analytics.Middleware;
 import com.segment.analytics.integrations.BasePayload;
 import com.segment.analytics.android.integrations.amplitude.AmplitudeIntegration;
+import com.segment.analytics.android.integrations.moengage.MoEngageIntegration;
+
 import static com.segment.analytics.Analytics.LogLevel;
 
 import java.util.LinkedHashMap;
@@ -67,6 +69,9 @@ public class FlutterSegmentPlugin implements MethodCallHandler, FlutterPlugin {
       Boolean debug = bundle.getBoolean("com.claimsforce.segment.DEBUG", false);
 
       Analytics.Builder analyticsBuilder = new Analytics.Builder(applicationContext, writeKey);
+
+      analyticsBuilder.use(MoEngageIntegration.FACTORY);
+
       if (trackApplicationLifecycleEvents) {
         // Enable this to record certain application events automatically
         analyticsBuilder.trackApplicationLifecycleEvents();
